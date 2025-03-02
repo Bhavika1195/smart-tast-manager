@@ -57,3 +57,37 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+
+
+
+
+npx ng new smart-tast-manager --routing --style=scss
+
+npx ng g c admin/dashboard
+npx ng g c admin/settings
+npx ng g c admin/users
+
+npx ng g c auth/login
+npx ng g c auth/register
+
+npx ng g c shared/footer
+npx ng g c shared/navbar
+
+npx ng g c tasks/task-details
+npx ng g c tasks/task-form
+npx ng g c tasks/task-list
+
+
+
+Admin_Routes add same in all routes.
+import { Routes } from '@angular/router';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { UsersComponent } from './users/users.component';
+import { SettingsComponent } from './settings/settings.component';
+export const routes: Routes = [
+        { path: '', component: DashboardComponent, children: [
+        { path: 'users', component: UsersComponent },
+        { path: 'settings', component: SettingsComponent }
+    ]}
+];
